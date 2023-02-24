@@ -1,6 +1,4 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { withSuperjson } = require("next-superjson");
 
-module.exports = nextConfig
+module.exports = withSuperjson()({ reactStrictMode: true });
