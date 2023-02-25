@@ -39,6 +39,11 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "prettier/prettier": "warn"
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
