@@ -8,7 +8,7 @@ import {
   ListIcon,
   Divider,
   Center,
-  LinkOverlay,
+  // LinkOverlay,
   LinkBox,
 } from "@chakra-ui/layout";
 import {
@@ -50,7 +50,7 @@ const musicMenu = [
   },
 ];
 
-const playlists = new Array(30).fill(1).map((_, i) => `Playlist' ${i + 1}`);
+const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
 
 const SideBar = () => {
   return (
@@ -111,7 +111,16 @@ const SideBar = () => {
           </List>
         </Box>
         <Divider marginY="20px" color="gray.800" />
-        <Box height="66%" overflowY="auto" paddingY="20px">
+        <Box
+          height="66%"
+          overflowY="auto"
+          paddingY="20px"
+          sx={{
+            "::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
           <List spacing={2}>
             {playlists.map((playlist) => {
               return (
