@@ -1,9 +1,14 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Generator block specifies the provider for the client library
 generator client {
   provider = "prisma-client-js"
 }
+
+// Datasource block specifies the provider for the database and connection details
+// url specifies the connection URL for the database and shadowDatabaseUrl specifies the connection URL for a read replica of the database
+// The connection URL is read from environment variables
 
 datasource db {
   provider = "postgresql"
@@ -11,6 +16,9 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// Model block specifies the database schema, each block represents a table in the database
+
+// User table has columns for user details and a one-to-many relation with the Playlist table
 model User{
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -20,6 +28,7 @@ model User{
   playlists Playlist[]
 }
 
+// Song table has columns for song details and a many-to-one relation with the Artist table and a many-to-many relation with the Playlist table
 model Song{
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -32,6 +41,7 @@ model Song{
   url String
 }
 
+// Artist table has columns for artist details and a one-to-many relation with the Song table
 model Artist {
   id Int @id @default(autoincrement()) 
   createdAt DateTime @default(now())
@@ -40,6 +50,7 @@ model Artist {
   name String @unique
 }
 
+// Playlist table has columns for playlist details and a many-to-one relation with the User 
 model Playlist{
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
