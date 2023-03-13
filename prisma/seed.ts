@@ -33,6 +33,27 @@ const run = async () => {
       password: bcrypt.hashSync("password", salt),
     },
   });
+
+  const songs = await prisma.song.findMany({});
+  // Create 10 playlists that have a user whose id is this one. Connect those 2 together.
+  // The playlist has an array of songs whose value is an array of these songs. Connect those.
+  await Promise.all(
+    new Array(10).fill(1).map((_, i) => {
+      return prisma.playlist.create({
+        data: {
+          name: `Playlist #${i + 1}`,
+          user: {
+            connect: { id: user.id },
+          },
+          songs: {
+            connect: songs.map((song) => ({
+              id: song.id,
+            })),
+          },
+        },
+      });
+    })
+  );
 };
 
 run()
