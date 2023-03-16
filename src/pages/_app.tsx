@@ -32,10 +32,16 @@ const theme = extendTheme({
 
 const App = ({ Component, pageProps }) => {
   return (
+    // If page has authPage property do not wrapp it in PlayerLayout
     <ChakraProvider theme={theme}>
-      <PlayerLayout>
+      {Component.authPage ? (
         <Component {...pageProps} />
-      </PlayerLayout>
+      ) : (
+        // If page doesn`t have authPage property it should have PlayerLayout in the dashboard.
+        <PlayerLayout>
+          <Component {...pageProps} />
+        </PlayerLayout>
+      )}
     </ChakraProvider>
   );
 };
