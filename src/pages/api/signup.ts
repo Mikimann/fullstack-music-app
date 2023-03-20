@@ -21,6 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (e) {
     res.status(401);
     res.json({ error: "User already exists" });
+    return;
   }
   // If user creation succeeds create a json web token with email, userId,
   // time when it was created, secret and expiration.
