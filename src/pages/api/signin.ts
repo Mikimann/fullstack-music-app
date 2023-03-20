@@ -17,7 +17,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // If there is an user and check user password vs password hash
   if (user && bcrypt.compareSync(password, user.password)) {
-    //
     const token = jwt.sign(
       {
         id: user.id,
