@@ -31,8 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       id: user.id,
       time: Date.now(),
     },
-    process.env.JWT_SECRET,
-    { expiresIn: parseInt(process.env.EXPIRATION_TIME, 10) }
+    "mikiman123",
+    { expiresIn: "8h" }
   );
 
   // Take the token and serialize it in a cookie called ACCESS_TOKEN and give it the following properties.
@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "Set-Cookie",
     cookie.serialize("ACCESS_TOKEN", token, {
       httpOnly: true, // http request accesible only
-      maxAge: parseInt(process.env.EXPIRATION_TIME, 10), // expiration time
+      maxAge: 8 * 60 * 60, // expiration time
       path: "/", // it works on the website, the root.
       sameSite: "lax", //  allow the user to maintain a logged in status while arriving from an external link.
       secure: process.env.NODE_ENV === "production", // secure only in production, as in HTTPS.
