@@ -1,5 +1,5 @@
 import { Box, Flex, Input, Button } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // import { useSWRConfig } from "swr";
 import { auth } from "lib/mutations";
 import { FC, useState } from "react";
@@ -20,7 +20,8 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
 
     await auth(mode, { email, password });
     setIsLoading(false);
-    router.push("/");
+    const url = "/";
+    router.push(url);
   };
   return (
     <Box height="100vh" width="100vw" bg="black" color="white">
