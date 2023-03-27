@@ -17,7 +17,7 @@ export const useMe = () => {
   };
 };
 
-// hook to get all the playlist to populate the sidebar
+// hook to get all the playlist from the db to populate the sidebar
 
 export const usePlaylist = () => {
   const { data, error } = useSWR("/playlist", fetcher);
