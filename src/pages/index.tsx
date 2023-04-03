@@ -1,3 +1,5 @@
+import { Box, Text, Flex } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/react";
 import GradientLayout from "components/GradientLayout";
 import prisma from "lib/prisma";
 
@@ -12,7 +14,35 @@ const Home = ({ artists }) => {
         description="50 Public Playlists"
         image="https://golden-storage-production.s3.amazonaws.com/topic_images/6861ca1121e24652a45644fc1a29f546.png"
       >
-        <div>Home</div>
+        <Box color="white" paddingX="40px">
+          <Box marginBottom="40px">
+            <Text fontSize="2xl" fontWeight="bold">
+              Top artist this month
+            </Text>
+            <Text fontSize="md">only visible to you</Text>
+          </Box>
+          <Flex>
+            {artists.map((artist) => (
+              <Box paddingX="10px" width="20%">
+                <Box
+                  bg="gray.900"
+                  borderRadius="4px"
+                  padding="15px"
+                  width="100%"
+                >
+                  <Image
+                    src="https://www.thestreet.com/.image/t_share/MTgyMDU5NDcwMTc4NzU1NzE1/boredape1.jpg"
+                    borderRadius="100%"
+                  />
+                  <Box marginTop="20px">
+                    <Text fontSize="large">{artist.name}</Text>
+                    <Text fontSize="x-small">Artist</Text>
+                  </Box>
+                </Box>
+              </Box>
+            ))}
+          </Flex>
+        </Box>
       </GradientLayout>
     </div>
   );
