@@ -36,3 +36,9 @@ export const validateRoute = (handler) => {
     res.json({ error: "You`re not authorized" });
   };
 };
+
+// function that verifies the token and gets id from the cookie
+export const validateToken = (token) => {
+  const user = jwt.verify(token, "mikiman123");
+  return user;
+};
