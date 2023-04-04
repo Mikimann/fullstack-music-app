@@ -130,7 +130,14 @@ const SideBar = () => {
               return (
                 <ListItem paddingX="20px" fontSize="16px" key={playlist.id}>
                   <LinkBox>
-                    <NextLink href="/" passHref>
+                    <NextLink
+                      // each playlist in the sidebar links to the playlist id
+                      href={{
+                        pathname: "/playlist/[id]",
+                        query: { id: playlist.id },
+                      }}
+                      passHref
+                    >
                       {playlist.name}
                     </NextLink>
                   </LinkBox>
