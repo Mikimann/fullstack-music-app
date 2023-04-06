@@ -1,6 +1,8 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { StoreProvider } from "easy-peasy";
 import "reset-css";
-import PlayerLayout from "components/PlayerLayout";
+import PlayerLayout from "components/playerLayout";
+import { store } from "lib/store";
 
 const theme = extendTheme({
   colors: {
@@ -34,14 +36,16 @@ const App = ({ Component, pageProps }) => {
   return (
     // If page has authPage property do not wrapp it in PlayerLayout
     <ChakraProvider theme={theme}>
-      {Component.authPage ? (
-        <Component {...pageProps} />
-      ) : (
-        // If page doesn`t have authPage property it should have PlayerLayout in the dashboard.
-        <PlayerLayout>
+      <StoreProvider store={store}>
+        {Component.authPage ? (
           <Component {...pageProps} />
-        </PlayerLayout>
-      )}
+        ) : (
+          // If page doesn`t have authPage property it should have PlayerLayout in the dashboard.
+          <PlayerLayout>
+            <Component {...pageProps} />
+          </PlayerLayout>
+        )}
+      </StoreProvider>
     </ChakraProvider>
   );
 };
