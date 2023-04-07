@@ -28,7 +28,9 @@ const Player = ({ songs, activeSong }) => {
   // keep track of wheter is playing or not. When this components loads up it will automatically start playing
   const [playing, setPlaying] = useState(true);
   // keep track of what song is currently playing
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(
+    songs.findIndex((song) => song.id === activeSong.id)
+  );
   // keep track of seek value on the bar
   const [seek, setSeek] = useState(0.0);
   // keep track if the user is seeking or not
@@ -41,6 +43,8 @@ const Player = ({ songs, activeSong }) => {
   const [duration, setDuration] = useState(0.0);
   // reference object that is going be attached to React howler component, in order to sync with the song status bar
   const soundRef = useRef(null);
+  // pull action from store
+  const setActiveSong = useStoreActions((state: any) => state.changeActiveSong);
 
   // useEffect hook that tracks the playing state and isSeeking state
   // if the music is currently playing and the user is not currently seeking then request an animation frame which
@@ -62,6 +66,12 @@ const Player = ({ songs, activeSong }) => {
     // if the conditional is initially false cancel the animation frame as well with the timerId
     cancelAnimationFrame(timerId);
   }, [playing, isSeeking]);
+
+  // useEffect for next and prev song buttons
+  // it watches the index to update the song
+  useEffect(() => {
+    setActiveSong(songs[index]);
+  }, [index, setActiveSong, songs]);
 
   const setPlayState = (value) => {
     setPlaying(value);
