@@ -42,6 +42,27 @@ const Player = ({ songs, activeSong }) => {
   // reference object that is going be attached to React howler component, in order to sync with the song status bar
   const soundRef = useRef(null);
 
+  // useEffect hook that tracks the playing state and isSeeking state
+  // if the music is currently playing and the user is not currently seeking then request an animation frame which
+  // updates the UI to whatever the soundRef.current.seek is.
+  useEffect(() => {
+    let timerId;
+
+    if (playing && !isSeeking) {
+      // recursive function
+      const f = () => {
+        setSeek(soundRef.current.seek());
+        timerId = requestAnimationFrame(f);
+      };
+
+      timerId = requestAnimationFrame(f);
+      // cleanup function
+      return () => cancelAnimationFrame(timerId);
+    }
+    // if the conditional is initially false cancel the animation frame as well with the timerId
+    cancelAnimationFrame(timerId);
+  }, [playing, isSeeking]);
+
   const setPlayState = (value) => {
     setPlaying(value);
   };
@@ -180,7 +201,7 @@ const Player = ({ songs, activeSong }) => {
       <Box color="gray.600">
         <Flex justify="center" align="center">
           <Box width="10%">
-            <Text fontSize="xs">2:34</Text>
+            <Text fontSize="xs">{formatTime(seek)}</Text>
           </Box>
           <Box width="80%">
             <RangeSlider
