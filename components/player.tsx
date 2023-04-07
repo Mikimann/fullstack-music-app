@@ -43,6 +43,8 @@ const Player = ({ songs, activeSong }) => {
   const [duration, setDuration] = useState(0.0);
   // reference object that is going be attached to React howler component, in order to sync with the song status bar
   const soundRef = useRef(null);
+  // useRef to fix the repeat button.
+  const repeatRef = useRef(repeat);
   // pull action from store
   const setActiveSong = useStoreActions((state: any) => state.changeActiveSong);
 
@@ -76,6 +78,11 @@ const Player = ({ songs, activeSong }) => {
   const setPlayState = (value) => {
     setPlaying(value);
   };
+
+  // useEffect to fix the repeat button
+  useEffect(() => {
+    repeatRef.current = repeat;
+  }, [repeat]);
 
   const onShuffle = () => {
     // use a callback if you need the current state to set the next version of the state.
@@ -114,7 +121,7 @@ const Player = ({ songs, activeSong }) => {
   // handler for when the song ends.
   const onEnd = () => {
     // count for repeat on song end, so it loops back and plays the song again
-    if (repeat) {
+    if (repeatRef.current) {
       // update the UI bar to restart, sets it to 0
       setSeek(0);
       // sets the song  back to 0, resets it.
