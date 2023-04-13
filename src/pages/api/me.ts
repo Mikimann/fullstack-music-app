@@ -10,6 +10,5 @@ export default validateRoute(async (req, res, user) => {
       userId: user.id,
     },
   });
-  console.log(playlistCount);
   res.json({ ...user, playlistCount });
 });
