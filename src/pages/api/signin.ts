@@ -23,9 +23,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         email: user.email,
         time: Date.now(),
       },
-      "mikiman123",
+      process.env.JWT_SECRET,
       {
-        expiresIn: "8h",
+        expiresIn: process.env.EXPIRATION_TIME,
       }
     );
     res.setHeader(
