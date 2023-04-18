@@ -6,15 +6,17 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = bcrypt.genSaltSync();
-  const { email, password } = req.body;
+  const { email, password, firstName, lastName } = req.body;
 
   let user;
-  // Create user with email and hashed password
+  // Create user with email, hashed password, first and last name
   try {
     user = await prisma.user.create({
       data: {
         email,
         password: bcrypt.hashSync(password, salt),
+        firstName,
+        lastName,
       },
     });
     // If user creation fails send a 401 back and error message
@@ -23,15 +25,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.json({ error: "User already exists" });
     return;
   }
-  // If user creation succeeds create a json web token with email, userId,
+  // If user creation succeeds create a json web token with email, userId, first and last name,
   // time when it was created, secret and expiration.
   const token = jwt.sign(
     {
       email: user.email,
       id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
       time: Date.now(),
     },
-    "mikiman123",
+    process.env.JWT_SECRET,
     { expiresIn: "8h" }
   );
 
