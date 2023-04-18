@@ -15,7 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   });
 
-  // If there is an user and check user password vs password hash
+  // Check for user and check user password vs password hash
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
       {
@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: process.env.EXPIRATION_TIME,
+        expiresIn: "8h",
       }
     );
     res.setHeader(
