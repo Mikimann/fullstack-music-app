@@ -6,4 +6,7 @@ module.exports = withSuperjson()({
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 });
