@@ -15,7 +15,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   MdShuffle,
   MdSkipPrevious,
-  MdPrevious,
   MdSkipNext,
   MdOutlinePlayCircleFilled,
   MdOutlinePauseCircleFilled,
