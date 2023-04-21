@@ -24,3 +24,4 @@ https://fullstackmusic-wine.vercel.app/signin
 Fullstack music app build using NextJS, Prisma and Supabase.
 Sign in using "user@test.com" and "password". This user contains playable playlist. 
 Alternatively, create an account by going to /signup route. 
+Still working on details. 
