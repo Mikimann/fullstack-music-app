@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-// eslint-disable-next-line import/no-extraneous-dependencies
 
 // This middleware checks the cookie for an access token. If there is no token, redirect to another page.
 
