@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Button } from "@chakra-ui/react";
+import { Box, Flex, Input, Button, Text, Link } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 // import { useSWRConfig } from "swr";
 import { signIn } from "lib/mutations";
@@ -40,31 +40,58 @@ const AuthForm: FC<{ mode: "signin" }> = ({ mode }) => {
           width={120}
         />
       </Flex>
-      <Flex justify="center" align="center" height="calc(100vh - 100px)">
-        <Box padding="50px" bg="gray.900" borderRadius="5px">
+      <Flex justify="center" align="center" height="calc(100vh - 150px)">
+        <Box
+          padding="50px"
+          paddingBottom="25px"
+          bg="gray.900"
+          borderRadius="5px"
+        >
           <form onSubmit={handleSubmit}>
-            <Input
-              placeholder="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button
-              type="submit"
-              bg="green.500"
-              isLoading={isLoading}
-              sx={{
-                "&:hover": {
-                  bg: "green.300",
-                },
-              }}
+            <Box width="100%">
+              <Input
+                marginBottom="10px"
+                size="lg"
+                placeholder="Email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Box>
+            <Box width="100%">
+              <Input
+                marginBottom="10px"
+                size="lg"
+                placeholder="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Box>
+            <Box
+              marginTop="20px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="100%"
             >
-              {mode}
-            </Button>
+              <Button
+                type="submit"
+                bg="green.500"
+                isLoading={isLoading}
+                sx={{
+                  "&:hover": {
+                    bg: "green.300",
+                  },
+                }}
+              >
+                {mode}
+              </Button>
+            </Box>
+            <Text fontSize="lg" marginTop="20px">
+              Don`t have an account?{" "}
+              <Link color="green.400" href="/signup">
+                Sign up
+              </Link>
+            </Text>
           </form>
         </Box>
       </Flex>
