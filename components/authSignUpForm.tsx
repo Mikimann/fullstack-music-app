@@ -39,41 +39,67 @@ const AuthSignUp: FC<{ mode: "signup" }> = ({ mode }) => {
           width={120}
         />
       </Flex>
-      <Flex justify="center" align="center" height="calc(100vh - 100px)">
-        <Box padding="50px" bg="gray.900" borderRadius="5px">
+      <Flex justify="center" align="center" height="calc(100vh - 150px)">
+        <Box
+          padding="50px"
+          paddingBottom="20px"
+          bg="gray.900"
+          borderRadius="5px"
+        >
           <form onSubmit={handleSubmit}>
-            <Input
-              placeholder="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Input
-              placeholder="First Name"
-              type="text"
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            <Input
-              placeholder="Last Name"
-              type="text"
-              onChange={(e) => setLastName(e.target.value)}
-            />
-            <Button
-              type="submit"
-              bg="green.500"
-              isLoading={isLoading}
-              sx={{
-                "&:hover": {
-                  bg: "green.300",
-                },
-              }}
+            <Box marginBottom="10px" width="100%">
+              <Input
+                size="lg"
+                placeholder="Email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Box>
+            <Box marginBottom="10px" width="100%">
+              <Input
+                size="lg"
+                placeholder="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Box>
+            <Box marginBottom="10px" width="100%">
+              <Input
+                size="lg"
+                placeholder="First Name"
+                type="text"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Box>
+            <Box marginBottom="10px" width="100%">
+              <Input
+                size="lg"
+                placeholder="Last Name"
+                type="text"
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Box>
+
+            <Box
+              marginTop="20px"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="100%"
             >
-              {mode}
-            </Button>
+              <Button
+                type="submit"
+                bg="green.500"
+                isLoading={isLoading}
+                sx={{
+                  "&:hover": {
+                    bg: "green.300",
+                  },
+                }}
+              >
+                {mode}
+              </Button>
+            </Box>
           </form>
         </Box>
       </Flex>
