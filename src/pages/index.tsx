@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from "@chakra-ui/layout";
-import { Image, Skeleton } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import GradientLayout from "components/GradientLayout";
 import { useMe } from "lib/hooks";
 import prisma from "lib/prisma";
@@ -14,14 +14,14 @@ const Home = ({ artists }) => {
         color="red"
         subtitle="profile"
         // Add a loading spinner/skeleton or something so undefined doesnt show when loading data"
-        title={`${user?.firstName} ${user?.lastName}`}
+        title={user ? `${user?.firstName} ${user?.lastName}` : "Loading..."}
         description={`${user?.playlistCount} public playlists`}
         image="https://golden-storage-production.s3.amazonaws.com/topic_images/6861ca1121e24652a45644fc1a29f546.png"
       >
         <Box color="white" paddingX="40px">
           <Box marginBottom="40px">
             <Text fontSize="2xl" fontWeight="bold">
-              Top artist this month
+              Top artists this month
             </Text>
             <Text fontSize="md">only visible to you</Text>
           </Box>
