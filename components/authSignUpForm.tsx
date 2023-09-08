@@ -97,7 +97,7 @@ const AuthSignUp: FC<{ mode: "signup" }> = ({ mode }) => {
                   },
                 }}
               >
-                {mode}
+                Sign up
               </Button>
             </Box>
           </form>
