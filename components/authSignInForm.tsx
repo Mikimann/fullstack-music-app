@@ -83,7 +83,7 @@ const AuthForm: FC<{ mode: "signin" }> = ({ mode }) => {
                   },
                 }}
               >
-                {mode}
+                Sign in
               </Button>
             </Box>
             <Text fontSize="lg" marginTop="20px">
