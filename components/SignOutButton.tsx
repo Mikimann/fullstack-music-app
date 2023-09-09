@@ -15,8 +15,7 @@ const SignOutButton: FC = () => {
       });
 
       if (response) {
-        // Sign-out successful, redirect to the login page
-        router.push("/"); // Replace with the actual login page URL
+        router.push("/");
       }
     } catch (error) {
       console.log("Error during sign-out:", error);
