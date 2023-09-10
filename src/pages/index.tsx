@@ -14,8 +14,10 @@ const Home = ({ artists }) => {
         color="red"
         subtitle="profile"
         // Add a loading spinner/skeleton or something so undefined doesnt show when loading data"
-        title={user ? `${user?.firstName} ${user?.lastName}` : "Loading..."}
-        description={`${user?.playlistCount} public playlists`}
+        title={user ? `${user?.firstName} ${user?.lastName}` : isLoading}
+        description={
+          user ? `${user?.playlistCount} public playlists` : isLoading
+        }
         image="https://golden-storage-production.s3.amazonaws.com/topic_images/6861ca1121e24652a45644fc1a29f546.png"
       >
         <Box color="white" paddingX="40px">
