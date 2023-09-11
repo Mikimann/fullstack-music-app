@@ -1,6 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import React from "react";
+import SignOutButton from "./SignOutButton";
 
 const GradientLayout = ({
   color,
@@ -13,8 +14,8 @@ const GradientLayout = ({
 }) => {
   return (
     <Box
-      // height="89.4vh"
-      height="100%"
+      height="89.4vh"
+      // height="100%"
       overflowY="auto"
       bgGradient={`linear(${color}.500 0%, ${color}.600 15%, ${color}.700 40%, rgba(0,0,0,0.95) 75%)`}
     >
@@ -33,6 +34,14 @@ const GradientLayout = ({
           </Text>
           <Text fontSize="6xl">{title}</Text>
           <Text fontSize="x-small">{description}</Text>
+        </Box>
+        <Box
+          flex="1"
+          textAlign="right"
+          paddingRight="20px"
+          marginBottom="100px"
+        >
+          <SignOutButton>Sign Out</SignOutButton>
         </Box>
       </Flex>
       <Box paddingY="50px">{children}</Box>
