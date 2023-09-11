@@ -22,17 +22,17 @@ const navMenu = [
   {
     name: "Home",
     icon: MdHome,
-    route: "/",
+    route: "",
   },
   {
     name: "Search",
     icon: MdSearch,
-    route: "/search",
+    route: "search",
   },
   {
     name: "Your Library",
     icon: MdLibraryMusic,
-    route: "/library",
+    route: "library",
   },
 ];
 
@@ -40,12 +40,12 @@ const musicMenu = [
   {
     name: "Create Playlist",
     icon: MdPlaylistAdd,
-    route: "/",
+    route: "",
   },
   {
     name: "Favourites",
     icon: MdFavorite,
-    route: "/favourites",
+    route: "favourites",
   },
 ];
 
