@@ -27,27 +27,32 @@ const Home = ({ artists }) => {
             </Text>
             <Text fontSize="md">only visible to you</Text>
           </Box>
-          <Flex>
-            {artists.map((artist) => (
-              <Box paddingX="10px" width="20%">
-                <Box
-                  bg="gray.900"
-                  borderRadius="4px"
-                  padding="15px"
-                  width="100%"
-                >
-                  <Image
-                    src="https://www.thestreet.com/.image/t_share/MTgyMDU5NDcwMTc4NzU1NzE1/boredape1.jpg"
-                    borderRadius="100%"
-                  />
-                  <Box marginTop="20px">
-                    <Text fontSize="large">{artist.name}</Text>
-                    <Text fontSize="x-small">Artist</Text>
+          {isLoading ? (
+            // Render a loading indicator here
+            "Loading..."
+          ) : (
+            <Flex>
+              {artists.map((artist) => (
+                <Box paddingX="10px" width="20%">
+                  <Box
+                    bg="gray.900"
+                    borderRadius="4px"
+                    padding="15px"
+                    width="100%"
+                  >
+                    <Image
+                      src="https://www.thestreet.com/.image/t_share/MTgyMDU5NDcwMTc4NzU1NzE1/boredape1.jpg"
+                      borderRadius="100%"
+                    />
+                    <Box marginTop="20px">
+                      <Text fontSize="large">{artist.name}</Text>
+                      <Text fontSize="x-small">Artist</Text>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            ))}
-          </Flex>
+              ))}
+            </Flex>
+          )}
         </Box>
       </GradientLayout>
     </div>
