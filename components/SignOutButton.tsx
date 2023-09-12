@@ -1,8 +1,12 @@
 import { useRouter } from "next/router";
 import { Button } from "@chakra-ui/react";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 
-const SignOutButton: FC = () => {
+interface SignOutButtonProps {
+  children: React.ReactNode;
+}
+
+const SignOutButton: FC<SignOutButtonProps> = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
