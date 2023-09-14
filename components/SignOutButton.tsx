@@ -1,6 +1,6 @@
+import React, { FC, useState } from "react";
 import { useRouter } from "next/router";
 import { Button } from "@chakra-ui/react";
-import React, { FC, useState } from "react";
 
 interface SignOutButtonProps {
   children: React.ReactNode;
