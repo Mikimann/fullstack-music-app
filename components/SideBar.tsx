@@ -17,20 +17,7 @@ import {
   MdFavorite,
 } from "react-icons/md";
 import { usePlaylist } from "lib/hooks";
-import { navMenu } from "./constants/constants";
-
-const musicMenu = [
-  {
-    name: "Create Playlist",
-    icon: MdPlaylistAdd,
-    route: "",
-  },
-  {
-    name: "Favourites",
-    icon: MdFavorite,
-    route: "favourites",
-  },
-];
+import { navMenu, musicMenu } from "./constants/constants";
 
 // const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
 
