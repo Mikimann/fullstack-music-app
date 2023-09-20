@@ -9,13 +9,6 @@ import {
   Divider,
   LinkBox,
 } from "@chakra-ui/layout";
-import {
-  MdHome,
-  MdSearch,
-  MdLibraryMusic,
-  MdPlaylistAdd,
-  MdFavorite,
-} from "react-icons/md";
 import { usePlaylist } from "lib/hooks";
 import { navMenu, musicMenu } from "./constants/constants";
 
