@@ -18,7 +18,11 @@ const Home = ({ artists }) => {
         description={
           user ? `${user?.playlistCount} public playlists` : isLoading
         }
-        image="https://golden-storage-production.s3.amazonaws.com/topic_images/6861ca1121e24652a45644fc1a29f546.png"
+        image={
+          user
+            ? "https://golden-storage-production.s3.amazonaws.com/topic_images/6861ca1121e24652a45644fc1a29f546.png"
+            : isLoading
+        }
       >
         <Box color="white" paddingX="40px">
           <Box marginBottom="40px">
