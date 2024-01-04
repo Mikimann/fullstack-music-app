@@ -32,7 +32,7 @@ const Home = ({ artists }) => {
             <Text fontSize="md">only visible to you</Text>
           </Box>
           {isLoading ? (
-            // Render a loading indicator here
+            // TODO: Render a loading indicator here
             "Loading..."
           ) : (
             <Flex>

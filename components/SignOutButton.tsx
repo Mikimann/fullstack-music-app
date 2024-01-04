@@ -18,8 +18,11 @@ const SignOutButton: FC<SignOutButtonProps> = () => {
         method: "POST",
       });
 
-      if (response) {
-        router.push("/");
+      if (response.ok) {
+        router.push("/api/signin");
+      } else {
+        // If the response status is not 200, throw an error
+        throw new Error(`Sign out failed with status: ${response.status}`);
       }
     } catch (error) {
       console.log("Error during sign-out:", error);

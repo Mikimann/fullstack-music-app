@@ -10,6 +10,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }),
   ]);
 
-  res.writeHead(302);
+  res.statusCode = 200;
   res.end();
 };
