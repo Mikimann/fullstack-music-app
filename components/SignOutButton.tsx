@@ -14,12 +14,12 @@ const SignOutButton: FC<SignOutButtonProps> = () => {
     setIsLoading(true);
     try {
       // Make a POST request to sign-out API route
-      const response = await fetch("/api/signout", {
+      const response = await fetch("/signout", {
         method: "POST",
       });
 
       if (response.ok) {
-        router.push("/api/signin");
+        router.push("/signin");
       } else {
         // If the response status is not 200, throw an error
         throw new Error(`Sign out failed with status: ${response.status}`);
