@@ -16,12 +16,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed on Vercel
 
-https://fullstackmusic-wine.vercel.app/signin
+https://fullstack-music-app-1ori.onrender.com
 
 
 ## About
 
 Fullstack music app build using NextJS, Prisma and Supabase.
 Sign in using "user@test.com" and "password". This user contains playable playlist. 
-Alternatively, create an account by going to /signup route. 
-Still working on details. 
+Working on bugs/features.
+
