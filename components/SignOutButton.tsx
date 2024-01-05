@@ -14,7 +14,7 @@ const SignOutButton: FC<SignOutButtonProps> = () => {
     setIsLoading(true);
     try {
       // Make a POST request to sign-out API route
-      const response = await fetch("/signout", {
+      const response = await fetch("/api/signout", {
         method: "POST",
       });
 
