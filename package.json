@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@chakra-ui/layout": "^2.1.16",
-    "@chakra-ui/react": "^2.5.1",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@next/font": "13.1.6",
     "@prisma/client": "^4.10.1",
     "@types/node": "18.14.0",
