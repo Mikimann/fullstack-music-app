@@ -1,4 +1,4 @@
-import { Box, Text, Flex } from "@chakra-ui/layout";
+import { Box, Text, Stack } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import GradientLayout from "components/GradientLayout";
 import { useMe } from "lib/hooks";
@@ -24,38 +24,32 @@ const Home = ({ artists }) => {
             : isLoading
         }
       >
-        <Box color="white" paddingX="40px">
-          <Box marginBottom="40px">
+        <Box color="white" px={{ base: "20px", md: "40px" }}>
+          <Box mb="40px">
             <Text fontSize="2xl" fontWeight="bold">
               Top artists this month
             </Text>
             <Text fontSize="md">only visible to you</Text>
           </Box>
           {isLoading ? (
-            // TODO: Render a loading indicator here
             "Loading..."
           ) : (
-            <Flex>
+            <Stack direction={{ base: "column", md: "row" }} spacing="10px">
               {artists.map((artist) => (
-                <Box paddingX="10px" width="20%">
-                  <Box
-                    bg="gray.900"
-                    borderRadius="4px"
-                    padding="15px"
-                    width="100%"
-                  >
+                <Box px="10px" width={{ base: "100%", md: "20%" }}>
+                  <Box bg="gray.900" borderRadius="4px" p="15px" width="100%">
                     <Image
                       src="https://www.thestreet.com/.image/t_share/MTgyMDU5NDcwMTc4NzU1NzE1/boredape1.jpg"
                       borderRadius="100%"
                     />
-                    <Box marginTop="20px">
+                    <Box mt="20px">
                       <Text fontSize="large">{artist.name}</Text>
                       <Text fontSize="x-small">Artist</Text>
                     </Box>
                   </Box>
                 </Box>
               ))}
-            </Flex>
+            </Stack>
           )}
         </Box>
       </GradientLayout>
