@@ -42,30 +42,32 @@ const AuthForm: FC<{ mode: "signin" }> = ({ mode }) => {
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 150px)">
         <Box
-          padding="50px"
+          padding="100px"
           paddingBottom="25px"
           bg="gray.900"
           borderRadius="5px"
         >
           <form onSubmit={handleSubmit}>
-            <Box width="100%">
-              <Input
-                marginBottom="10px"
-                size="lg"
-                placeholder="Email"
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Box>
-            <Box width="100%">
-              <Input
-                marginBottom="10px"
-                size="lg"
-                placeholder="Password"
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Box>
+            <Input
+              marginBottom="10px"
+              size="lg"
+              placeholder="Email"
+              type="email"
+              width="100%"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <Input
+              marginBottom="10px"
+              size="lg"
+              placeholder="Password"
+              type="password"
+              width="100%"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
             <Box
               marginTop="20px"
               display="flex"
@@ -82,13 +84,15 @@ const AuthForm: FC<{ mode: "signin" }> = ({ mode }) => {
                     bg: "green.300",
                   },
                 }}
+                colorScheme="white"
+                size="lg"
               >
                 Sign in
               </Button>
             </Box>
-            <Text fontSize="lg" marginTop="20px">
+            <Text fontSize="lg" marginTop="20px" textAlign="center">
               Don`t have an account?{" "}
-              <Link color="green.400" href="/signup">
+              <Link color="green.300" href="/signup">
                 Sign up
               </Link>
             </Text>
