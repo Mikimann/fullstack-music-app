@@ -16,8 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployed on Vercel
 
-https://fullstack-music-app-1ori.onrender.com
-
+https://fullstack-music-app-tau.vercel.app
 
 ## About
 
