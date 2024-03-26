@@ -41,7 +41,6 @@ const SignOutButton: FC<SignOutButtonProps> = () => {
       }}
       onClick={handleSignOut}
       isLoading={isLoading}
-      colorScheme="white"
     >
       Sign Out
     </Button>
